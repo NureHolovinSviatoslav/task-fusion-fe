@@ -1,0 +1,55 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
+  border-radius: 9px;
+  padding: 0.625rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  height: 3.5rem;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.fontBold {
+  font-weight: 500;
+}
+
+.orange {
+  background-color: $orange;
+}
+
+.red {
+  background-color: $red;
+}
+
+.green {
+  background-color: $green;
+}
+
+.blue {
+  background-color: $blue;
+}
+
+.gray {
+  background-color: $detail-grey;
+}
+
+.textColor_white {
+  color: $white;
+}
+
+.textColor_black {
+  color: $black;
+}
+
+.disabled {
+  cursor: not-allowed;
+  background-color: $list-item-grey;
+  color: $black;
+}

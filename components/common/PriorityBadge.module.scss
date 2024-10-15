@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+  padding: 0.375rem;
+  border-radius: 15px;
+  color: $white;
+}
+
+.green {
+  background-color: $green;
+}
+
+.red {
+  background-color: $red;
+}
+
+.orange {
+  background-color: $orange;
+}

@@ -1,0 +1,22 @@
+.listItemWrapper {
+  display: flex;
+  flex-direction: row;
+  row-gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 17px;
+  height: 4.125rem;
+  padding: 1.5rem;
+  background-color: $blue;
+  width: 100%;
+}
+
+.listItemWrapperRead {
+  background-color: $list-item-grey;
+}
+
+.listItemTitle {
+  font-size: 1rem;
+  font-weight: 500;
+}

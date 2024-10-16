@@ -1,0 +1,10 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  row-gap: 7rem;
+  max-width: 23.5rem;
+  height: 100svh;
+  background-color: $light-grey;
+  flex-grow: 1;
+  padding: 8rem 6.5rem;
+}

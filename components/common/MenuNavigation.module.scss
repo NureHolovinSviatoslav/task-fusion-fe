@@ -1,0 +1,27 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.listItem {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  .active & {
+    font-weight: 700;
+  }
+}
+
+.active {
+  font-weight: 700;
+  margin: 0 0.2rem;
+
+  &::before {
+    content: '— ';
+    position: relative;
+    right: 0.2rem;
+  }
+}

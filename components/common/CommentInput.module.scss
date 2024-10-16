@@ -1,0 +1,27 @@
+.commentInputWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background-color: $detail-grey;
+  border-radius: 17px;
+}
+
+.commentInput {
+  min-width: 100%;
+  padding: 1.5rem;
+  border-radius: 17px;
+  resize: none;
+  background-color: $list-item-grey;
+  margin-bottom: 1rem;
+  height: 8rem;
+}
+
+.validationText {
+  color: $red;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}

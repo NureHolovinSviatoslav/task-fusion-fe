@@ -1,0 +1,61 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 2rem;
+}
+
+.loader {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1rem;
+	justify-items: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	max-width: 2rem;
+}
+
+.loader div {
+	width: 1rem;
+	height: 1rem;
+	background-color: $orange;
+	border-radius: 50%;
+	animation: bounce 1.2s infinite ease-in-out;
+}
+
+.loader div:nth-child(1) {
+	animation-delay: -0.24s;
+}
+
+.loader div:nth-child(2) {
+	animation-delay: -0.12s;
+}
+
+.small {
+	grid-gap: 0.5rem;
+}
+
+.small div {
+	width: 0.5rem;
+	height: 0.5rem;
+}
+
+@keyframes bounce {
+
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+
+	40% {
+		transform: translateY(-1rem);
+	}
+
+	60% {
+		transform: translateY(-0.5rem);
+	}
+}

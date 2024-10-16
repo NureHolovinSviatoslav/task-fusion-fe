@@ -1,0 +1,52 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 2rem;
+	padding: 1.5rem;
+	background-color: $detail-grey;
+	border-radius: 17px;
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+	width: 30rem;
+
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.219);
+}
+
+.titleWrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.title {
+	font-size: 1.25rem;
+	font-weight: 500;
+}
+
+.listItems {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+}
+
+.closeButton {
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	cursor: pointer;
+	color: $black;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.193);
+	z-index: 999;
+}

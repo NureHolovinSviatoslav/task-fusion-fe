@@ -1,0 +1,51 @@
+.container {
+  width: 100svw;
+  height: 100svh;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  row-gap: 7rem;
+  max-width: 18rem;
+  height: 100svh;
+  background-color: $light-grey;
+  flex-grow: 1;
+  padding: 8rem 4rem 3rem 4rem;
+}
+
+.menuContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.main {
+  flex-grow: 1;
+  overflow: scroll;
+  position: relative;
+  padding-top: 6rem;
+}
+
+.content {
+  padding: 2rem 3.5rem;
+}
+
+.bellAndLetter {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+}
+
+.notificationProfileWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 10rem;
+}

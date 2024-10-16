@@ -1,0 +1,38 @@
+.statusWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dotWrapper {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+  }
+}
+
+.activeDotWrapper {
+  @extend .dotWrapper;
+
+  &::before {
+    background-color: $green;
+  }
+}
+
+.closedDotWrapper {
+  @extend .dotWrapper;
+
+  &::before {
+    background-color: $red;
+  }
+}

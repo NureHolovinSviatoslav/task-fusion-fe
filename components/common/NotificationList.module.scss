@@ -1,0 +1,55 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 2rem;
+	padding: 1.5rem;
+	background-color: $detail-grey;
+	border-radius: 17px;
+
+	position: absolute;
+	bottom: 0;
+	left: 4rem;
+	z-index: 1000;
+	width: 30rem;
+	max-height: 60vh;
+
+	overflow-y: scroll;
+
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.219);
+}
+
+.titleWrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.title {
+	font-size: 1.25rem;
+	font-weight: 500;
+}
+
+.listItems {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+}
+
+.closeButton {
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	cursor: pointer;
+	color: $black;
+}
+
+.markAllButton {
+	cursor: pointer;
+}
+
+.buttonsWrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 1rem;
+}

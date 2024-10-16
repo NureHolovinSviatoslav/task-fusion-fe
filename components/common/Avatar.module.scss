@@ -1,0 +1,16 @@
+.avatarWrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.name {
+  font-weight: 500;
+}
+
+.roundedImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

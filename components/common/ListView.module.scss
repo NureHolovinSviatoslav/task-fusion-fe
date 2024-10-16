@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  padding: 1.5rem;
+  background-color: $detail-grey;
+  border-radius: 17px;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.listItems {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}

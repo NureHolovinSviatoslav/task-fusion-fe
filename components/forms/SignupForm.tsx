@@ -58,6 +58,8 @@ export const SignupForm = () => {
   return (
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <ImageInput file={file} setFile={setFile} />
+
         <Select options={userOptions} placeholder="Position type" {...register('position')} />
 
         {errors.position && <p className={styles.validationText}>{errors.position.message}</p>}
@@ -65,18 +67,6 @@ export const SignupForm = () => {
         <Input placeholder="Email" {...register('email')} />
 
         {errors.email && <p className={styles.validationText}>{errors.email.message}</p>}
-
-        <Input placeholder="Name" {...register('name')} />
-
-        {errors.name && <p className={styles.validationText}>{errors.name.message}</p>}
-
-        <Input placeholder="Description" multiline {...register('description')} />
-
-        {errors.description && <p className={styles.validationText}>{errors.description.message}</p>}
-
-        <Input placeholder="Telegram ID (optional)" type="number" {...register('telegramId')} />
-
-        {errors.telegramId && <p className={styles.validationText}>{errors.telegramId.message}</p>}
 
         <Input placeholder="Password" type="password" {...register('password')} />
 

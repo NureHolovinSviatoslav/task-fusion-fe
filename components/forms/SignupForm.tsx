@@ -68,6 +68,18 @@ export const SignupForm = () => {
 
         {errors.email && <p className={styles.validationText}>{errors.email.message}</p>}
 
+        <Input placeholder="Name" {...register('name')} />
+
+        {errors.name && <p className={styles.validationText}>{errors.name.message}</p>}
+
+        <Input placeholder="Description" multiline {...register('description')} />
+
+        {errors.description && <p className={styles.validationText}>{errors.description.message}</p>}
+
+        <Input placeholder="Telegram ID (optional)" type="number" {...register('telegramId')} />
+
+        {errors.telegramId && <p className={styles.validationText}>{errors.telegramId.message}</p>}
+
         <Input placeholder="Password" type="password" {...register('password')} />
 
         {errors.password && <p className={styles.validationText}>{errors.password.message}</p>}

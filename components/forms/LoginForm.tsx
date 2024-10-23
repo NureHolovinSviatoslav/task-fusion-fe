@@ -52,11 +52,11 @@ export const LoginForm = () => {
 
       {errors.root && <p className={styles.validationText}>{errors.root.message}</p>}
 
-      <div className={styles.buttonWrapper}>
+      {/* <div className={styles.buttonWrapper}>
         <Button text="Login" bgColor="orange" isFontBold textColor="white" width="12.75rem" />
 
         <p className={styles.forgotPassword}>Forgot password?</p>
-      </div>
+      </div> */}
     </form>
   );
 };

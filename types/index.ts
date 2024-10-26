@@ -28,7 +28,6 @@ export type ProfileResponse = {
   email: string;
   name: string;
   userType: UserType;
-  telegramId?: string;
   description: string;
 } & (
   | {
@@ -106,7 +105,6 @@ export type PasswordlessUser = {
   email: string;
   name: string;
   description: string;
-  telegramId: string;
   userType: UserType;
   createdAt: Date;
   updatedAt: Date;

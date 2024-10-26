@@ -15,6 +15,7 @@ type Props = {
   isFontBold?: boolean;
   onClick?: () => void;
   disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 };
 
 export const Button = (props: Props) => {
@@ -27,6 +28,7 @@ export const Button = (props: Props) => {
     isFontBold = true,
     onClick = () => {},
     disabled = false,
+    type = 'submit',
   } = props;
 
   return (
@@ -41,6 +43,7 @@ export const Button = (props: Props) => {
       style={{ width }}
       onClick={onClick}
       disabled={disabled}
+      type={type}
     >
       {icon} <span>{text}</span>
     </button>

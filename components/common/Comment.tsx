@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { formatDate } from '@/utils/helpers';
 
 import { Avatar } from './Avatar';
 import styles from './Comment.module.scss';
@@ -17,7 +17,7 @@ export const Comment = (props: Props) => {
       <div className={styles.commentDetails}>
         <Avatar name={name} />
 
-        <p className={styles.date}>{moment(date).format('MM/DD/YYYY, h:mm a')}</p>
+        <p className={styles.date}>{formatDate(date)}</p>
       </div>
 
       <p className={styles.text}>{text || 'No text'}</p>

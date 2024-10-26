@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { addHours, format } from 'date-fns';
 
 import { Avatar } from '@/components/common/Avatar';
 import { Props as ColumnItemProps } from '@/components/common/ColumnItem';
@@ -26,7 +26,7 @@ export const mapTasksToColumns = (tasks: Task[] = []): ColumnItemProps[] => {
       },
       {
         name: 'Date added',
-        value: moment(task.createdAt).format('MM/DD/YYYY, h:mm a'),
+        value: formatDate(task.createdAt),
       },
     ],
     priority: task.taskPriority,
@@ -46,11 +46,11 @@ export const mapTaskToDetails = (task: Task): Detail[] => {
     },
     {
       title: 'Date added',
-      value: moment(task.createdAt).format('MM/DD/YYYY, h:mm a'),
+      value: formatDate(task.createdAt),
     },
     {
       title: 'Deadline',
-      value: moment(task.deadline).format('MM/DD/YYYY, h:mm a'),
+      value: formatDate(task.deadline),
     },
     {
       title: 'Participants',
@@ -67,7 +67,7 @@ export const mapActionsToColumns = (actions?: Action[]): ColumnItemProps[] => {
       rows: [
         {
           name: 'Date added',
-          value: moment(action.createdAt).format('MM/DD/YYYY, h:mm a'),
+          value: formatDate(action.createdAt),
         },
       ],
       author: <Avatar name={action.user.name} />,
@@ -79,12 +79,8 @@ export const mapDeveloperProjectsToListItems = (projects: DeveloperProjectRespon
   return projects.map((project) => ({
     title: project.title,
     data: [
-      <TextWithIcon key={1} iconName="sunrise" text={moment(project.deadline).format('MM/DD/YYYY, h:mm a')} />,
-      <TextWithIcon
-        key={2}
-        iconName="sunset"
-        text={moment.utc(project.deadline).local().format('MM/DD/YYYY, h:mm a')}
-      />,
+      <TextWithIcon key={1} iconName="sunrise" text={formatDate(project.createdAt)} />,
+      <TextWithIcon key={2} iconName="sunset" text={formatDate(project.deadline)} />,
       <TextWithIcon key={3} iconName="people" text={project.pmUser.name} />,
     ],
     right: project.id,
@@ -96,12 +92,8 @@ export const mapPmProjectsToListItems = (projects: PmProjectResponse): ListItemP
   return projects.map((project) => ({
     title: project.title,
     data: [
-      <TextWithIcon key={1} iconName="sunrise" text={moment(project.deadline).format('MM/DD/YYYY, h:mm a')} />,
-      <TextWithIcon
-        key={2}
-        iconName="sunset"
-        text={moment.utc(project.deadline).local().format('MM/DD/YYYY, h:mm a')}
-      />,
+      <TextWithIcon key={1} iconName="sunrise" text={formatDate(project.createdAt)} />,
+      <TextWithIcon key={2} iconName="sunset" text={formatDate(project.deadline)} />,
       <TextWithIcon
         key={3}
         iconName="people"
@@ -117,12 +109,8 @@ export const mapClientProjectsToListItems = (projects: ClientProjectResponse): L
   return projects.map((project) => ({
     title: project.title,
     data: [
-      <TextWithIcon key={1} iconName="sunrise" text={moment(project.deadline).format('MM/DD/YYYY, h:mm a')} />,
-      <TextWithIcon
-        key={2}
-        iconName="sunset"
-        text={moment.utc(project.deadline).local().format('MM/DD/YYYY, h:mm a')}
-      />,
+      <TextWithIcon key={1} iconName="sunrise" text={formatDate(project.createdAt)} />,
+      <TextWithIcon key={2} iconName="sunset" text={formatDate(project.deadline)} />,
       <TextWithIcon
         key={3}
         iconName="people"
@@ -138,16 +126,8 @@ export const mapPaymentRequestsToListItems = (requests: PaymentRequestWithProjec
   return requests.map((request) => ({
     title: `Payment Request for ${request.project?.title || 'unknown project'}`,
     data: [
-      <TextWithIcon
-        key={1}
-        iconName="sunrise"
-        text={moment(request.paymentPeriodStartDate).format('MM/DD/YYYY, h:mm a')}
-      />,
-      <TextWithIcon
-        key={2}
-        iconName="sunset"
-        text={moment.utc(request.paymentPeriodEndDate).format('MM/DD/YYYY, h:mm a')}
-      />,
+      <TextWithIcon key={1} iconName="sunrise" text={formatDate(request.paymentPeriodStartDate)} />,
+      <TextWithIcon key={2} iconName="sunset" text={formatDate(request.paymentPeriodEndDate)} />,
       <TextWithIcon key={3} iconName="check" text={request.status} />,
     ],
     right: request.project?.id,
@@ -164,4 +144,10 @@ export const mapPathnameToLocationArray = (pathname: string): string[] => {
 
 export const capitalizeFirstLetter = (str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+export const formatDate = (deadline: Date | string) => {
+  const zonedDate = new Date(deadline);
+
+  return format(addHours(zonedDate, 2), 'MM/dd/yyyy, h:mm a');
 };

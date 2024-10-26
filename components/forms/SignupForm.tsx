@@ -76,10 +76,6 @@ export const SignupForm = () => {
 
         {errors.description && <p className={styles.validationText}>{errors.description.message}</p>}
 
-        <Input placeholder="Telegram ID (optional)" type="number" {...register('telegramId')} />
-
-        {errors.telegramId && <p className={styles.validationText}>{errors.telegramId.message}</p>}
-
         <Input placeholder="Password" type="password" {...register('password')} />
 
         {errors.password && <p className={styles.validationText}>{errors.password.message}</p>}

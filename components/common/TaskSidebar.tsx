@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
-import moment from 'moment';
+import { format, addDays } from 'date-fns';
 import { useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
@@ -32,6 +32,7 @@ const TaskSidebar = (props: Props) => {
     handleSubmit,
     setValue,
     setError,
+    reset,
     formState: { errors },
   } = useForm<CreateTaskFormValues>({
     resolver: zodResolver(createTaskSchema),
@@ -54,6 +55,14 @@ const TaskSidebar = (props: Props) => {
       });
 
       setTaskSidebarState(null);
+
+      reset({
+        deadline: format(addDays(new Date(), 1), 'yyyy-MM-dd'),
+        taskStatus: TaskStatus.TO_DO,
+        taskPriority: TaskPriority.MEDIUM,
+        title: '',
+        description: '',
+      });
     },
     onError: (error) => {
       setError('root', { message: error.message });
@@ -111,7 +120,7 @@ const TaskSidebar = (props: Props) => {
           <Input
             type="date"
             placeholder="Deadline"
-            defaultValue={moment().add(1, 'day').format('YYYY-MM-DD')}
+            defaultValue={format(addDays(new Date(), 1), 'yyyy-MM-dd')}
             {...register('deadline')}
           />
 

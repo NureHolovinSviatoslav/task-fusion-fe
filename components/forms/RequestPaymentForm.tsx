@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
-import moment from 'moment';
+import { format, subDays } from 'date-fns';
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -75,14 +75,14 @@ export const RequestPaymentForm = () => {
       <DatePicker
         placeholder="Payment period start date"
         {...register('startDate')}
-        defaultValue={moment().subtract(1, 'month').format('YYYY-MM-DD')}
+        defaultValue={format(subDays(new Date(), 1), 'yyyy-MM-dd')}
       />
       {errors.startDate && <p className={styles.validationText}>{errors.startDate.message}</p>}
 
       <DatePicker
         placeholder="Payment period end date"
         {...register('endDate')}
-        defaultValue={moment().format('YYYY-MM-DD')}
+        defaultValue={format(new Date(), 'yyyy-MM-dd')}
       />
       {errors.endDate && <p className={styles.validationText}>{errors.endDate.message}</p>}
 

@@ -11,7 +11,7 @@ import { CreateCommentFormValues } from '../schemas/createCommentSchema';
 import { CreateTaskFormValues } from '../schemas/createTaskSchema';
 
 export const createUser = async (data: SignupRequest) => {
-  const { email, name, password, description, position, telegramId } = data;
+  const { email, name, password, description, position } = data;
 
   const endpointUrl = (() => {
     if (position === UserType.CLIENT) {
@@ -31,7 +31,6 @@ export const createUser = async (data: SignupRequest) => {
     password,
     description,
     position,
-    telegramId: telegramId || null,
   });
 };
 

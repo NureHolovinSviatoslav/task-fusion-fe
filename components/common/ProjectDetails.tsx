@@ -1,10 +1,9 @@
-import moment from 'moment';
-
 import { useProjectById } from '@/hooks/useProjectById';
 import { useProjectDevelopers } from '@/hooks/useProjectDevelopers';
 import { useProjectPmUser } from '@/hooks/useProjectPmUser';
 import { useProjectTasksByStatus } from '@/hooks/useProjectTasksByStatus';
 import { TaskStatus } from '@/types/enums';
+import { formatDate } from '@/utils/helpers';
 
 import { Details } from './Details';
 import { Loader } from './Loader';
@@ -45,11 +44,11 @@ export const ProjectDetails = (props: Props) => {
   const DETAILS = [
     {
       title: 'Date added',
-      value: moment(project.createdAt).format('MM/DD/YYYY, h:mm a'),
+      value: formatDate(project.createdAt),
     },
     {
       title: 'Deadline',
-      value: moment(project.deadline).format('MM/DD/YYYY, h:mm a'),
+      value: formatDate(project.deadline),
     },
     {
       title: 'Participants',

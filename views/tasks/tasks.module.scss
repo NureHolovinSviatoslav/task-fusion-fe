@@ -1,0 +1,34 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 2rem;
+	row-gap: 3rem;
+	height: 100%;
+}
+
+.text {
+  text-align: center;
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 3fr 7fr 4fr;
+  column-gap: 1.5rem;
+
+  &>* {
+    margin-top: 2rem;
+  }
+}
+
+.commentSection {
+  &>* {
+    margin-bottom: 1rem;
+  }
+}
+
+.taskDetailsSection {
+  &>*:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}

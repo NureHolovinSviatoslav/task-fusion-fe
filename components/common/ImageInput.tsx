@@ -62,6 +62,7 @@ export const ImageInput = (props: Props) => {
             isFontBold
             textColor="black"
             onClick={handleClick}
+            type="button"
           />
 
           <p className={styles.chosenFileText}>{file ? file.name : 'No file chosen'}</p>

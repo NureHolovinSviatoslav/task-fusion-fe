@@ -20,61 +20,6 @@ type Props = {
 };
 
 export const PmProjectInvitationView = (props: Props) => {
-  const { inviteId } = props;
-
-  const router = useRouter();
-
-  const { data: userProfile, isLoading: isLoadingProfile } = useMyProfile();
-  const { data: invite, isLoading: isLoadingInvite } = usePmInviteById(inviteId);
-
-  const projectId = invite?.projectId?.toString() || '';
-
-  const { mutate: acceptInviteMutation } = useMutation({
-    mutationFn: acceptPmInvite,
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: [QueryKeys.PROJECTS + userProfile?.id],
-      });
-
-      setTimeout(() => {
-        router.replace('/dashboard');
-
-        queryClient.invalidateQueries({
-          queryKey: [QueryKeys.PM_INVITES + inviteId],
-        });
-      }, 3000);
-    },
-  });
-
-  const { mutate: rejectInviteMutation } = useMutation({
-    mutationFn: rejectPmInvite,
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: [QueryKeys.PROJECTS + userProfile?.id],
-      });
-
-      setTimeout(() => {
-        router.replace('/dashboard');
-
-        queryClient.invalidateQueries({
-          queryKey: [QueryKeys.PM_INVITES + inviteId],
-        });
-      }, 3000);
-    },
-  });
-
-  const handleAcceptInvite = useCallback(() => {
-    acceptInviteMutation({
-      inviteId: +inviteId,
-    });
-  }, [acceptInviteMutation, inviteId]);
-
-  const handleRejectInvite = useCallback(() => {
-    rejectInviteMutation({
-      inviteId: +inviteId,
-    });
-  }, [inviteId, rejectInviteMutation]);
-
   const content = useCallback(() => {
     if (isLoadingInvite || isLoadingProfile) {
       return <Loader />;

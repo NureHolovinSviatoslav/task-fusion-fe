@@ -77,6 +77,41 @@ export const TaskPage = (props: Props) => {
     onSuccess: invalidateTask,
   });
 
+  const commentsContent = useCallback(() => {
+    if (isCommentsLoading) {
+      return <Loader isSmall />;
+    }
+
+    if (!comments?.length) {
+      return <NoData />;
+    }
+
+    return comments.map((comment) => (
+      <Comment key={comment.id} name={comment.user.name} text={comment.text} date={comment.createdAt} />
+    ));
+  }, [comments, isCommentsLoading]);
+
+  const assignUserToTask = (userId: number) => {
+    mutateAssignTaskAsync({
+      taskId: +taskId,
+      userId,
+    });
+  };
+
+  const unassignUserFromTask = (userId: number) => {
+    mutateUnassignTaskAsync({
+      taskId: +taskId,
+      userId,
+    });
+  };
+
+  const handleCloseTask = () => {
+    mutateTaskStatusAsync({
+      taskId: +taskId,
+      taskStatus: TaskStatus.CLOSED,
+    });
+  };
+
   if (isTaskLoading || !task || isError || isLoadingValidate) {
     return <Loader />;
   }

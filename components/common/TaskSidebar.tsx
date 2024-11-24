@@ -93,37 +93,37 @@ const TaskSidebar = (props: Props) => {
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+          <label className={styles.label}>Task Title</label>
           <Input placeholder="Title" {...register('title')} />
-
           {errors.title && <p className={styles.validationText}>{errors.title.message}</p>}
 
+          <label className={styles.label}>Task Description</label>
           <Input placeholder="Description" multiline {...register('description')} />
-
           {errors.description && <p className={styles.validationText}>{errors.description.message}</p>}
 
+          <label className={styles.label}>Task Priority</label>
           <Select
             placeholder="Priority"
             options={Object.values(TaskPriority).map((priority) => ({ value: priority, label: priority }))}
             {...register('taskPriority')}
           />
-
           {errors.taskPriority && <p className={styles.validationText}>{errors.taskPriority.message}</p>}
 
+          <label className={styles.label}>Task Status</label>
           <Select
             placeholder="Status"
             options={Object.values(TaskStatus).map((status) => ({ value: status, label: status }))}
             {...register('taskStatus')}
           />
-
           {errors.taskStatus && <p className={styles.validationText}>{errors.taskStatus.message}</p>}
 
+          <label className={styles.label}>Due Date</label>
           <Input
             type="date"
             placeholder="Deadline"
             defaultValue={format(addDays(new Date(), 1), 'yyyy-MM-dd')}
             {...register('deadline')}
           />
-
           {errors.deadline && <p className={styles.validationText}>{errors.deadline.message}</p>}
 
           {errors.root && <p className={styles.validationText}>{errors.root.message}</p>}

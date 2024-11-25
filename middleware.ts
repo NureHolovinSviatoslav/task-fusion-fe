@@ -1,4 +1,5 @@
 import { NextResponse, NextRequest } from 'next/server';
+
 import { UserType } from './types/enums';
 import { refreshTokens } from './utils/api/mutations';
 import { DEFAULT_AGE } from './utils/constants';
@@ -95,6 +96,7 @@ export async function middleware(request: NextRequest) {
     if (isLoggedIn) {
       return redirectToDashboard(request);
     }
+
     return redirectToLogin(request);
   }
 

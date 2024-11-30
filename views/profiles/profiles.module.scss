@@ -1,0 +1,40 @@
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-gap: 2rem;
+
+  &>* {
+    margin-top: 2rem;
+  }
+}
+
+.personalDetailsWrapper {
+  display: grid;
+  grid-template-rows: 3fr 1fr 1fr;
+  grid-gap: 1.5rem;
+}
+
+.technicalDetailsWrapper {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1.5rem;
+}
+
+.tasksWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.5rem;
+}
+
+.avatarWrapper {
+  padding: 1.5rem;
+  background-color: $detail-grey;
+  border-radius: 17px;
+}
+
+.logoutButtonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
